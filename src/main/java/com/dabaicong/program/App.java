@@ -4,19 +4,27 @@ import java.util.Arrays;
 import java.util.List;
 
 
+
 /**
  * Hello world!
  *
  */
 public class App 
 {
+	
     public static void main( String[] args )
     {
-    	String beatCode = "100911-1,2,2^";
-    	String winCode = "2,1,2";
-    	String s = caculatePrizeLevel(beatCode,winCode);
-    	System.out.println("s is :"+s);
+    	String beatCode = "200728-01,10,11#02,03,04,05,06,07,08,09^";
+    	
+    	System.out.println("s is :"+convert(beatCode));
     }
+    public static String convert(String ticket) {
+    	String playType = ticket.split("-")[0];
+    	System.out.println("playtype is :"+playType);
+		// ,换成空格    #换成$  吃掉最后的尾巴
+		String content = ticket.split("-")[1].replace(",", " ").replace("#", "$").replace("^", "");
+		return "R2|"+content;
+	}
     public static String caculatePrizeLevel(String betcode, String wincode) {
     	if(!isErTong(wincode)) {
 			return "";
