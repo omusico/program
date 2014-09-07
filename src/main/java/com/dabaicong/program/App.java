@@ -25,7 +25,7 @@ public class App
 		String content = ticket.split("-")[1].replace(",", " ").replace("#", "$").replace("^", "");
 		return "R2|"+content;
 	}
-    public static String caculatePrizeLevel(String betcode, String wincode) {
+    public static String caculatePrizeLevel(String betcode, String wincode) throws Exception {
     	if(!isErTong(wincode)) {
 			return "";
 		}
@@ -40,6 +40,7 @@ public class App
 			Arrays.sort(wincodes);
 			if(wincodes[0]==codes[0]&&wincodes[1]==codes[1]&&wincodes[2]==codes[2]) {
 				prize.append("2").append(",");
+				throw new NullPointerException();
 			}
 		}
 		check2delete(prize);
