@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Transient;
 import javax.persistence.TypedQuery;
+
 
 import com.dabaicong.jpa.entry.Employee;
 
@@ -40,5 +42,12 @@ public class EmployeeService {
 		TypedQuery<Employee> query = entityManager.createQuery("select e from employee e",Employee.class);
 		list = query.getResultList();
 		return list;
+	}
+	public Employee findById(int id){
+		Employee employee = entityManager.find(Employee.class, id);
+		if(employee!= null){
+			return employee;
+		}
+		return null ;
 	}
 }
