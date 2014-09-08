@@ -1,7 +1,9 @@
 package com.dabaicong.program;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 
@@ -14,16 +16,25 @@ public class App
 	
     public static void main( String[] args )
     {
-    	String beatCode = "200728-01,10,11#02,03,04,05,06,07,08,09^";
+    	String beatCode = "200733-01,10,11^";
     	
     	System.out.println("s is :"+convert(beatCode));
+    	
+    	
+//    	Map<Integer, String> map = new HashMap<Integer, String>();
+//    	map.put(1001, "dale");
+//    	map.put(1002, "dabaicong");
+//    	map.put(1003, "dabaicai");
+//    	map.put(1004, "tmd");
+//    	System.out.println("get by String:"+map.get("1001"));
+//    	System.out.println("get by integer:"+map.get(new Integer("1001")));
     }
     public static String convert(String ticket) {
     	String playType = ticket.split("-")[0];
     	System.out.println("playtype is :"+playType);
 		// ,换成空格    #换成$  吃掉最后的尾巴
-		String content = ticket.split("-")[1].replace(",", " ").replace("#", "$").replace("^", "");
-		return "R2|"+content;
+    	String content = ticket.split("-")[1].replace("^", "");
+		return "Q2|"+content;
 	}
     public static String caculatePrizeLevel(String betcode, String wincode) throws Exception {
     	if(!isErTong(wincode)) {
