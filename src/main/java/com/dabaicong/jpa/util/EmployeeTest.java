@@ -19,13 +19,13 @@ public class EmployeeTest {
 		EmployeeService serivce = new EmployeeService(entityManager);
 		Employee employee = null ;
 		
-//		/**
-//		 * test for insert 
-//		 */
-//		entityManager.getTransaction().begin();
-//		Employee employee = serivce.create(102, "dale", 10000);
-//		
-//		System.out.println("插入一条记录id = "+employee.getId()+" ,name = "+employee.getName());
+		/**
+		 * test for insert 
+		 */
+		entityManager.getTransaction().begin();
+		Employee employee1 = serivce.create(102, "dale", 10000);
+		
+		System.out.println("插入一条记录id = "+employee1.getId()+" ,name = "+employee1.getName());
 		
 		entityManager.getTransaction().begin();
 		List<Employee> list = serivce.findAll();
