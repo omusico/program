@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 
-
 /**
  * Hello world!
  *
@@ -16,7 +15,7 @@ public class App
 	
     public static void main( String[] args )
     {
-    	String beatCode = "200733-01,10,11^";
+    	String beatCode = "100511-1,2,3,4^";
     	
     	System.out.println("s is :"+convert(beatCode));
     	
@@ -30,11 +29,16 @@ public class App
 //    	System.out.println("get by integer:"+map.get(new Integer("1001")));
     }
     public static String convert(String ticket) {
-    	String playType = ticket.split("-")[0];
-    	System.out.println("playtype is :"+playType);
-		// ,换成空格    #换成$  吃掉最后的尾巴
-    	String content = ticket.split("-")[1].replace("^", "");
-		return "Q2|"+content;
+		// 2,3,4,5,6
+		String contentStr=ticket.split("-")[1].replace("^","");
+		String returnStr = "";
+		String[] code = contentStr.split(",");
+		for(int i=0;i<code.length;i++){
+			code[i]+=(code[i]+"*");
+			returnStr+=(code[i]+",");
+		}
+		
+		return returnStr.substring(0, returnStr.length()-1);
 	}
     public static String caculatePrizeLevel(String betcode, String wincode) throws Exception {
     	if(!isErTong(wincode)) {
