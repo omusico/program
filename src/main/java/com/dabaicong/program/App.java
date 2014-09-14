@@ -20,13 +20,13 @@ public class App
     	System.out.println("s is :"+convert(beatCode));
     	
     	
-//    	Map<Integer, String> map = new HashMap<Integer, String>();
-//    	map.put(1001, "dale");
-//    	map.put(1002, "dabaicong");
-//    	map.put(1003, "dabaicai");
-//    	map.put(1004, "tmd");
-//    	System.out.println("get by String:"+map.get("1001"));
-//    	System.out.println("get by integer:"+map.get(new Integer("1001")));
+    	Map<Integer, String> map = new HashMap<Integer, String>();
+    	map.put(1001, "dale");
+    	map.put(1002, "dabaicong");
+    	map.put(1003, "dabaicai");
+    	map.put(1004, "tmd");
+    	System.out.println("get by String:"+map.get("1001"));
+    	System.out.println("get by integer:"+map.get(new Integer("1001")));
     }
     public static String convert(String ticket) {
 		// 2,3,4,5,6
