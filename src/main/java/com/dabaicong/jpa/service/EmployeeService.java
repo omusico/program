@@ -13,6 +13,10 @@ public class EmployeeService {
 
 	private EntityManager entityManager ;
 	
+	public EmployeeService() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public EmployeeService(EntityManager entityManager ){
 		this.entityManager = entityManager ;
 	}
