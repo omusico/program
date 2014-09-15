@@ -27,20 +27,7 @@ public class EmployeeTest {
 		
 		System.out.println("插入一条记录id = "+employee1.getId()+" ,name = "+employee1.getName());
 		
-		entityManager.getTransaction().begin();
-		List<Employee> list = serivce.findAll();
-		System.out.println("the size of list is :"+list.size());
-		
-		// befor update 
-		System.out.println("==================befor update=============== ");
-		employee = serivce.findById(100);
-		System.out.println(employee);
-		serivce.addSal(100, 10000);
-		employee = serivce.findById(100);
-		System.out.println(employee);
-		entityManager.flush();
-		System.out.println("==================end update=============== ");
-		Thread.sleep(5000);
+//		
 		entityManager.getTransaction().commit();	
 		entityManager.close();
 		entityManagerFactory.close();
