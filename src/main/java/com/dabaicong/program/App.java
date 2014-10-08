@@ -24,10 +24,64 @@ import com.dabaicong.jpa.util.XmlParse;
  */
 public class App  implements Runnable
 {
-	
-	
+	/** 大赢家的比分转换    自己规定的比分格式 ---->  出票商的比分格式     */
+	private static Map<String, String> bifen = new HashMap<String, String>();
+	/** 半全场胜平负转换    自己规定的半全场格式 ---->  出票商的半全场格式    */
+	private static Map<String, String> bqcspf = new HashMap<String, String>();
+	protected static Map<Integer, String> playTypeMap = new HashMap<Integer, String>();
     public static void main( String[] args )
     {
+    	
+
+		bifen.put("10","1:0");    
+		bifen.put("20","2:0");
+		bifen.put("21","2:1");
+		bifen.put("30","3:0");
+		bifen.put("31","3:1");
+		bifen.put("32","3:2");
+		bifen.put("40","4:0");
+		bifen.put("41","4:1");
+		bifen.put("42","4:2");
+		bifen.put("50","5:0");
+		bifen.put("51","5:1");
+		bifen.put("52","5:2");
+		bifen.put("90","9:0");
+		bifen.put("00","0:0");
+		bifen.put("11","1:1");
+		bifen.put("22","2:2");
+		bifen.put("33","3:3");
+		bifen.put("99","9:9");
+		bifen.put("01","0:1");
+		bifen.put("02","0:2");
+		bifen.put("12","1:2");
+		bifen.put("03","0:3");
+		bifen.put("13","1:3");
+		bifen.put("23","2:3");
+		bifen.put("04","0:4");
+		bifen.put("14","1:4");
+		bifen.put("24","2:4");
+		bifen.put("05","0:5");
+		bifen.put("15","1:5");
+		bifen.put("25","2:5");
+		bifen.put("09","0:9");
+		
+		bqcspf.put("33", "3-3");
+		bqcspf.put("31", "3-1");
+		bqcspf.put("30", "3-0");
+		bqcspf.put("13", "1-3");
+		bqcspf.put("11", "1-1");
+		bqcspf.put("10", "1-0");
+		bqcspf.put("03", "0-3");
+		bqcspf.put("01", "0-1");
+		bqcspf.put("00", "0-0");
+		   playTypeMap.put(LotteryType.JCZQ_BF.value, "CBF");
+			playTypeMap.put(LotteryType.JCZQ_BQC.value, "BQC");
+			playTypeMap.put(LotteryType.JCZQ_JQS.value, "JQS");
+			playTypeMap.put(LotteryType.JCZQ_SPF.value, "RQSPF");
+			playTypeMap.put(LotteryType.JCZQ_SPF_WRQ.value, "SPF");
+			playTypeMap.put(LotteryType.JCZQ_HHGG.value, "HHGG");
+		
+		
 //    	String beatCode = "01,02,03,04,05";
 //    	String winCode = "01,01,01";
 //    	System.out.println(caculatePrizeLevel(beatCode,winCode,1));
@@ -56,12 +110,199 @@ public class App  implements Runnable
 //    	list.add(jo);
 //    	JSONArray array =JSONArray.fromObject(list);
 //    	System.out.println(array);
+    	
+//    	JSONArray array = getJczqStatic();
+//    	System.out.println(array);
+//    	
+//    	JSONArray array = getJczqDynamic();
+//    	System.out.println(array);
+    	//  3006 OK
+    	//  3007 比分不ok  ，关于比分的转换
+    	String code1 = "300714001-20140925001(20,32,50)|20140925002(21,40)|20140925003(22)|20140925004(03)^";
+    	//  3008总进去，不ok，总进球的转换，
+    	String code2 = "300813001-20140925001(0,4)|20140925002(0,4)|20140925003(0,4)^";
+    	//  3009半场 ,不ok，33,11的转换
+    	String code3 = "300913001-20140925001(33,11,03)|20140925002(31,11)|20140925003(31,13)^";
+    	//	3010   ok
+    	//  混合肯定有问题
+    	String code5 = "301116001-20140925001(3)|20140925002(3)|20140925003(3)|20140925006(3)|20140925007(3)|20140925009(3)^";
+    	
+    	
+//    	System.out.println("type:"+code2.substring(0,4));
+    	
+    	
+    	
+    	
+    	
+//		System.out.println(strBuffer.toString());
+//    	System.out.println(convert("300612001-20140926018(3,1)|20140926019(3,1)^"));
+    	String s = "3:0=8.82|0:2=2.21";
+    	String[] s1 = s.split("\\|");
+    	System.out.println(s1[0]);
+//    	System.out.println(s.split("|")[1]);
+    	
+    }
+ 
+    // 301114001-20140926003*3010(3)|20140926004*3006(3)|20140925001*3009(33,11,03)|20140925001*3007(20,32,50)|20140925001*3008(0,4)^
+    public static String convert(String ticket) {
+			String playType = ticket.split("-")[0];  //获得玩法
+			String chuan = ticket.split("-")[0].substring(5, 9);    //获得N串N的格式
+			String strs[] = ticket.split("-")[1].split("\\|"); 	 //各个单串
+	    	StringBuffer strBuffer=new StringBuffer();
+	    	int i = 0 ;
+			for(String str1:strs){
+				str1 = str1.substring(2);
+				str1 = str1.replace("(", "=").replace(")", "").replace(",", "/").replace("^", "");
+				strBuffer.append(str1);
+				if(i!=strs.length-1){
+					strBuffer.append(",");
+				}
+				i++;
+			}
+		return "HH"+"|"+strBuffer.append("|"+chuan.substring(0,1)+"*"+Integer.parseInt(chuan.substring(1))).toString();
     }
     
-    public JSONArray getJczqStatic() {
+    public static JSONArray getJczqDynamic() {
+    	String url = "http://119.254.92.197/200.xml";
+		//键位matchnum 值是sp对象Map<String, Map<String, String>> lottery_type = new HashMap<String, Map<String, String>>();
+		Map<String, JSONObject> checkMap = new HashMap<String, JSONObject>();
+		try {
+			String matchStr = HTTPUtil.post(url, "");
+			XmlParse body = new XmlParse(matchStr, "root", "", "");
+			Element el = body.getRootElement();
+			Iterator<Element> packages = el.elementIterator("package");
+			while (packages.hasNext()) {
+				Element packag = packages.next();
+				// 日期 20140410
+				String date = packag.elementText("date");
+
+				Iterator<Element> matchs = packag.elementIterator("match");
+				while (matchs.hasNext()) {
+					Element match = matchs.next();
+					// 玩法编码 让球胜平负 [01] 总进球数[02] 半全场[03] 比分[04] 胜平负 [05]
+					String playCode = match.attributeValue("playCode");
+					// 当天赛事场次编号
+					String sn = match.attributeValue("sn");
+					// 选号方式(购买方式) 02是串关 01是单关 如果是02playCode是00
+					String pollCode = match.attributeValue("pollCode");
+					JSONObject json = new JSONObject();
+					if ("01".equals(pollCode)) {
+						JSONObject dansp = checkMap.get(date+sn);
+						if (dansp == null) {
+							dansp = new JSONObject();
+							dansp.put("matchNum", date+sn);
+							checkMap.put(date+sn, dansp);
+						}
+
+						if ("01".equals(playCode)) {
+							Map<String, String> spfMap = new HashMap<String, String>();
+							Element winOrNega = match.element("winOrNega");
+							// 让球胜平负-负
+							String nega = winOrNega.attributeValue("nega");
+							spfMap.put(LotteryConstant.JCZQ_SPF_F_VALUE, nega);
+							// 让球胜平负-平
+							String flat = winOrNega.attributeValue("flat");
+							spfMap.put(LotteryConstant.JCZQ_SPF_P_VALUE, flat);
+							// 让球胜平负-胜
+							String win = winOrNega.attributeValue("win");
+							spfMap.put(LotteryConstant.JCZQ_SPF_S_VALUE, win);
+							dansp.put(LotteryType.JCZQ_SPF.value+"", spfMap);
+						} else if ("02".equals(playCode)) {
+							Map<String, String> zjqMap = new HashMap<String, String>();
+							Element totalGoal = match.element("totalGoal");
+							// 总进球-进0个
+							String tg_0 = totalGoal.attributeValue("tg_0");
+							zjqMap.put(LotteryConstant.JCZQ_JQS_0_VALUE, tg_0);
+							// 总进球-进1个
+							String tg_1 = totalGoal.attributeValue("tg_1");
+							zjqMap.put(LotteryConstant.JCZQ_JQS_1_VALUE, tg_1);
+							// 总进球-进2个
+							String tg_2 = totalGoal.attributeValue("tg_2");
+							zjqMap.put(LotteryConstant.JCZQ_JQS_2_VALUE, tg_2);
+							// 总进球-进3个
+							String tg_3 = totalGoal.attributeValue("tg_3");
+							zjqMap.put(LotteryConstant.JCZQ_JQS_3_VALUE, tg_3);
+							// 总进球-进4个
+							String tg_4 = totalGoal.attributeValue("tg_4");
+							zjqMap.put(LotteryConstant.JCZQ_JQS_4_VALUE, tg_4);
+							// 总进球-进5个
+							String tg_5 = totalGoal.attributeValue("tg_5");
+							zjqMap.put(LotteryConstant.JCZQ_JQS_5_VALUE, tg_5);
+							// 总进球-进6个
+							String tg_6 = totalGoal.attributeValue("tg_6");
+							zjqMap.put(LotteryConstant.JCZQ_JQS_6_VALUE, tg_6);
+							// 总进球-进7+个
+							String tg_7 = totalGoal.attributeValue("tg_7");
+							zjqMap.put(LotteryConstant.JCZQ_JQS_7_VALUE, tg_7);
+							dansp.put(LotteryType.JCZQ_JQS.value+"", zjqMap);
+						} else if ("03".equals(playCode)) {
+							Map<String, String> bqcMap = new HashMap<String, String>();
+							Element halfCourt = match.element("halfCourt");
+							// 半场胜平负-负负
+							String hc_ff = halfCourt.attributeValue("hc_ff");
+							bqcMap.put(LotteryConstant.JCZQ_BQC_FF_VALUE, hc_ff);
+							// 半场胜平负-负平
+							String hc_fp = halfCourt.attributeValue("hc_fp");
+							bqcMap.put(LotteryConstant.JCZQ_BQC_FP_VALUE, hc_fp);
+							// 半场胜平负-负胜
+							String hc_fs = halfCourt.attributeValue("hc_fs");
+							bqcMap.put(LotteryConstant.JCZQ_BQC_FS_VALUE, hc_fs);
+							// 半场胜平负-平负
+							String hc_pf = halfCourt.attributeValue("hc_pf");
+							bqcMap.put(LotteryConstant.JCZQ_BQC_PF_VALUE, hc_pf);
+							// 半场胜平负-平平
+							String hc_pp = halfCourt.attributeValue("hc_pp");
+							bqcMap.put(LotteryConstant.JCZQ_BQC_PP_VALUE, hc_pp);
+							// 半场胜平负-平胜
+							String hc_ps = halfCourt.attributeValue("hc_ps");
+							bqcMap.put(LotteryConstant.JCZQ_BQC_PS_VALUE, hc_ps);
+							// 半场胜平负-胜负
+							String hc_sf = halfCourt.attributeValue("hc_sf");
+							bqcMap.put(LotteryConstant.JCZQ_BQC_SF_VALUE, hc_sf);
+							// 半场胜平负-胜平
+							String hc_sp = halfCourt.attributeValue("hc_sp");
+							bqcMap.put(LotteryConstant.JCZQ_BQC_SP_VALUE, hc_sp);
+							// 半场胜平负-胜胜
+							String hc_ss = halfCourt.attributeValue("hc_ss");
+							bqcMap.put(LotteryConstant.JCZQ_BQC_SS_VALUE, hc_ss);
+
+							dansp.put(LotteryType.JCZQ_BQC.value+"", bqcMap);
+						} else if ("05".equals(playCode)) {
+							Map<String, String> spfMap2 = new HashMap<String, String>();
+							Element spfWinOrNega = match
+									.element("spfWinOrNega");
+							// 胜平负-负
+							String spfNega = spfWinOrNega
+									.attributeValue("spfNega");
+							spfMap2.put(LotteryConstant.JCZQ_SPF_WRQ_F_VALUE,
+									spfNega);
+							// 胜平负-平
+							String spfFlat = spfWinOrNega
+									.attributeValue("spfFlat");
+							spfMap2.put(LotteryConstant.JCZQ_SPF_WRQ_P_VALUE,
+									spfFlat);
+							// 胜平负-胜
+							String spfWin = spfWinOrNega
+									.attributeValue("spfWin");
+							spfMap2.put(LotteryConstant.JCZQ_SPF_WRQ_S_VALUE,
+									spfWin);
+							dansp.put(LotteryType.JCZQ_SPF_WRQ.value+"", spfMap2);
+						}
+					}
+				}
+			}
+		} catch (Exception e) {
+		}
+		return JSONArray.fromObject(checkMap);
+
+	}
+    
+    
+    public static JSONArray getJczqStatic() {
 		String url = "http://119.254.92.197/200.xml";
 		//  准备返回的jsonarray
-		JSONArray array = new JSONArray();
+		
+		Map<String, JSONObject> map = new HashMap<String, JSONObject>();
 //		List<JczqStaticSp> retList = new ArrayList<JczqStaticSp>();
 		try {
 			String matchStr = HTTPUtil.post(url, "");
@@ -76,21 +317,21 @@ public class App  implements Runnable
 				String date = packag.elementText("date");
 				Iterator<Element> matchs = packag.elementIterator("match");
 				while (matchs.hasNext()) {
-					JSONObject json = new JSONObject();
+//					JSONObject json = new JSONObject();
 					Element match = matchs.next();
 					
 					// 当天赛事场次编号
 					String sn = match.attributeValue("sn");
 					// 选号方式(购买方式) 02是串关 01是单关 如果是02playCode是00
 					String pollCode = match.attributeValue("pollCode");
+					
 					if ("02".equals(pollCode)) {
-
+						JSONObject array = new JSONObject();
 						// 串关sp
 //						JczqStaticSp jczqStaticSp = new JczqStaticSp();
 //						jczqStaticSp.setMatch_num(date + sn);
-//						json.put("matchNum", date + sn);
 						// jczqChuanSp.setLottery_type(lottery_type);
-
+						array.put("matchNum", date + sn);
 						Map<String, Map<String, String>> lottery_type = new HashMap<String, Map<String, String>>();
 
 						Map<String, String> spfMap = new HashMap<String, String>();
@@ -104,7 +345,7 @@ public class App  implements Runnable
 						// 让球胜平负-胜
 						String win = winOrNega.attributeValue("win");
 						spfMap.put(LotteryConstant.JCZQ_SPF_S_VALUE, win);
-						lottery_type.put(LotteryType.JCZQ_SPF.value+"", spfMap);
+						array.put(LotteryType.JCZQ_SPF.value+"", spfMap);
 
 						Map<String, String> spfMap2 = new HashMap<String, String>();
 						Element spfWinOrNega = match.element("spfWinOrNega");
@@ -120,7 +361,7 @@ public class App  implements Runnable
 						String spfWin = spfWinOrNega.attributeValue("spfWin");
 						spfMap2.put(LotteryConstant.JCZQ_SPF_WRQ_S_VALUE,
 								spfWin);
-						lottery_type.put(LotteryType.JCZQ_SPF_WRQ.value+"", spfMap2);
+						array.put(LotteryType.JCZQ_SPF_WRQ.value+"", spfMap2);
 
 						Map<String, String> bfMap = new HashMap<String, String>();
 						Element score = match.element("score");
@@ -217,7 +458,7 @@ public class App  implements Runnable
 						// sp_52 比分-5:2
 						String sp_52 = score.attributeValue("sp_52");
 						bfMap.put(LotteryConstant.JCZQ_BF_ZS_5_2_VALUE, sp_52);
-						lottery_type.put(LotteryType.JCZQ_BF.value+"", bfMap);
+						array.put(LotteryType.JCZQ_BF.value+"", bfMap);
 
 						Map<String, String> zjqMap = new HashMap<String, String>();
 						Element totalGoal = match.element("totalGoal");
@@ -245,7 +486,7 @@ public class App  implements Runnable
 						// 总进球-进7+个
 						String tg_7 = totalGoal.attributeValue("tg_7");
 						zjqMap.put(LotteryConstant.JCZQ_JQS_7_VALUE, tg_7);
-						lottery_type.put(LotteryType.JCZQ_JQS.value+"", zjqMap);
+						array.put(LotteryType.JCZQ_JQS.value+"", zjqMap);
 
 						Map<String, String> bqcMap = new HashMap<String, String>();
 						Element halfCourt = match.element("halfCourt");
@@ -277,18 +518,21 @@ public class App  implements Runnable
 						String hc_ss = halfCourt.attributeValue("hc_ss");
 						bqcMap.put(LotteryConstant.JCZQ_BQC_SS_VALUE, hc_ss);
 
-						lottery_type.put(LotteryType.JCZQ_BQC.value+"", bqcMap);
-						json.put("lottery_type", lottery_type);
+						array.put(LotteryType.JCZQ_BQC.value+"", bqcMap);
+//						json.put("lottery_type", lottery_type);
 //						jczqStaticSp.setLottery_type(lottery_type);
-						array.add(json);
+//						array.put("ddddd", json);
 //						retList.add(jczqStaticSp);
+						map.put(date+sn, array);
+						System.out.println("======================="+map.size());
 					}
 				}
+				
 			}
 		} catch (Exception e) {
 		}
-
-		return array;
+		
+		return JSONArray.fromObject(map);
 	}
     
     // 从一个String中移除一段,也就是不支持的玩法

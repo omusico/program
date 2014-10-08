@@ -16,10 +16,26 @@
 		<my.output.path>D:/zhongyue</my.output.path>
 		<maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
 		<hibernate.dialect>org.hibernate.dialect.OracleDialect</hibernate.dialect>
-		<nexus.url>106.37.228.210:4017</nexus.url>
+		<nexus.url>172.16.20.239:8081</nexus.url>
 		<liquibase.file>src/main/db/mysql/changelog.xml</liquibase.file>
 	</properties>
-	
+		<repositories>
+		<repository>
+			<id>public</id>
+			<name>all public jar</name>
+			<url>http://${nexus.url}/nexus/content/groups/public/</url>
+		</repository>
+		<repository>
+			<id>public1</id>
+			<name>all  jar</name>
+			<url>http://${nexus.url}/nexus/content/repositories/thirdparty/</url>
+		</repository>
+		<repository>
+			<id>momoplan-maven-release</id>
+			<name>momoplan maven release</name>
+			<url>http://repo1.maven.org/maven2</url>
+		</repository>
+	</repositories>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -49,6 +65,11 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>4.1.0.Final</version>
 		</dependency>
+		<!-- <dependency>
+	<groupId>jaxen</groupId>
+	<artifactId>jaxen</artifactId>
+	<version>1.1.1</version>
+</dependency> -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
