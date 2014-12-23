@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<message>
+	<header>
+		<sid><![CDATA[800062]]></sid>
+		<cmd><![CDATA[018]]></cmd>
+		<digestType><![CDATA[md5]]></digestType>
+		<digest><![CDATA[eaa3e65e7414309feba966faf1b6deb5]]></digest>
+	</header>
+	<body>
+		<response code="0000" msg="系统处理成功">
+			<issue name="14188" lotteryId="300" startTime="2014-12-19 20:00:00"
+				stopTime="2014-12-26 22:50:00" endTime="2014-12-26 23:00:00" status="1"
+				bonusTime="2014-12-27 10:00:00" bonusNumber="" bonusTotal=""
+				prizePool="" globalSaleTotal="">
+				<gameList>
+					<game leageName="英超" masterName="[18]伯恩利" guestName="利物浦[10]"
+						startTime="2014-12-26 23:00:00" index="1"></game>
+					<game leageName="英超" masterName="[17]水晶宫" guestName="南安普[05]"
+						startTime="2014-12-26 23:00:00" index="2"></game>
+					<game leageName="英超" masterName="[11]埃弗顿" guestName="斯托克[13]"
+						startTime="2014-12-26 23:00:00" index="3"></game>
+					<game leageName="英超" masterName="[20]莱切城" guestName="热刺[07]"
+						startTime="2014-12-26 23:00:00" index="4"></game>
+					<game leageName="英超" masterName="[03]曼联" guestName="纽卡斯[09]"
+						startTime="2014-12-26 23:00:00" index="5"></game>
+					<game leageName="英超" masterName="[14]桑德兰" guestName="赫尔城[19]"
+						startTime="2014-12-26 23:00:00" index="6"></game>
+					<game leageName="英超" masterName="[08]斯旺西" guestName="维拉[12]"
+						startTime="2014-12-26 23:00:00" index="7"></game>
+					<game leageName="英超" masterName="[15]西布罗" guestName="曼城[02]"
+						startTime="2014-12-26 23:00:00" index="8"></game>
+					<game leageName="英超" masterName="[06]阿森纳" guestName="巡游者[16]"
+						startTime="2014-12-27 01:30:00" index="9"></game>
+					<game leageName="英冠" masterName="[01]伯恩茅" guestName="富勒姆[13]"
+						startTime="2014-12-26 23:00:00" index="10"></game>
+					<game leageName="英冠" masterName="[15]伯明翰" guestName="德比郡[05]"
+						startTime="2014-12-26 23:00:00" index="11"></game>
+					<game leageName="英冠" masterName="[22]布赖顿" guestName="雷丁[17]"
+						startTime="2014-12-26 23:00:00" index="12"></game>
+					<game leageName="英冠" masterName="[18]利兹" guestName="维冈[23]"
+						startTime="2014-12-26 23:00:00" index="13"></game>
+					<game leageName="英冠" masterName="[06]沃特福" guestName="狼队[10]"
+						startTime="2014-12-27 01:30:00" index="14"></game>
+				</gameList>
+				<bonusClass></bonusClass>
+			</issue>
+		</response>
+	</body>
+</message>
