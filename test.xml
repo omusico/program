@@ -2,48 +2,117 @@
 <message>
 	<header>
 		<sid><![CDATA[800062]]></sid>
-		<cmd><![CDATA[018]]></cmd>
+		<cmd><![CDATA[011]]></cmd>
 		<digestType><![CDATA[md5]]></digestType>
-		<digest><![CDATA[eaa3e65e7414309feba966faf1b6deb5]]></digest>
+		<digest><![CDATA[64783a334ea40456dfeaabf09609d6f8]]></digest>
 	</header>
 	<body>
 		<response code="0000" msg="系统处理成功">
-			<issue name="14188" lotteryId="300" startTime="2014-12-19 20:00:00"
-				stopTime="2014-12-26 22:50:00" endTime="2014-12-26 23:00:00" status="1"
-				bonusTime="2014-12-27 10:00:00" bonusNumber="" bonusTotal=""
-				prizePool="" globalSaleTotal="">
-				<gameList>
-					<game leageName="英超" masterName="[18]伯恩利" guestName="利物浦[10]"
-						startTime="2014-12-26 23:00:00" index="1"></game>
-					<game leageName="英超" masterName="[17]水晶宫" guestName="南安普[05]"
-						startTime="2014-12-26 23:00:00" index="2"></game>
-					<game leageName="英超" masterName="[11]埃弗顿" guestName="斯托克[13]"
-						startTime="2014-12-26 23:00:00" index="3"></game>
-					<game leageName="英超" masterName="[20]莱切城" guestName="热刺[07]"
-						startTime="2014-12-26 23:00:00" index="4"></game>
-					<game leageName="英超" masterName="[03]曼联" guestName="纽卡斯[09]"
-						startTime="2014-12-26 23:00:00" index="5"></game>
-					<game leageName="英超" masterName="[14]桑德兰" guestName="赫尔城[19]"
-						startTime="2014-12-26 23:00:00" index="6"></game>
-					<game leageName="英超" masterName="[08]斯旺西" guestName="维拉[12]"
-						startTime="2014-12-26 23:00:00" index="7"></game>
-					<game leageName="英超" masterName="[15]西布罗" guestName="曼城[02]"
-						startTime="2014-12-26 23:00:00" index="8"></game>
-					<game leageName="英超" masterName="[06]阿森纳" guestName="巡游者[16]"
-						startTime="2014-12-27 01:30:00" index="9"></game>
-					<game leageName="英冠" masterName="[01]伯恩茅" guestName="富勒姆[13]"
-						startTime="2014-12-26 23:00:00" index="10"></game>
-					<game leageName="英冠" masterName="[15]伯明翰" guestName="德比郡[05]"
-						startTime="2014-12-26 23:00:00" index="11"></game>
-					<game leageName="英冠" masterName="[22]布赖顿" guestName="雷丁[17]"
-						startTime="2014-12-26 23:00:00" index="12"></game>
-					<game leageName="英冠" masterName="[18]利兹" guestName="维冈[23]"
-						startTime="2014-12-26 23:00:00" index="13"></game>
-					<game leageName="英冠" masterName="[06]沃特福" guestName="狼队[10]"
-						startTime="2014-12-27 01:30:00" index="14"></game>
-				</gameList>
+			<ticket sysId="30203194620856rbV7vg" saleCode="test161146355181"
+				orderId="T201502030000498814" lotteryId="201" issue="20150203"
+				amount="2.00" status="2" msg="交易成功" bonusStatus="0" bonusAmount="0.00"
+				fixBonusAmount="0.00" printTime="2015-02-03 19:46:20" ticketId="T201502030000498814">
+				<odds><![CDATA[SFC|150203301(0)=1(3.33),150203304(0)=1(4.66)|2*1]]></odds>
 				<bonusClass></bonusClass>
-			</issue>
+			</ticket>
+			<ticket sysId="30203194620986fxcpKS" saleCode="test063473728067"
+				orderId="T201502030000498817" lotteryId="201" issue="20150203"
+				amount="2.00" status="2" msg="交易成功" bonusStatus="0" bonusAmount="0.00"
+				fixBonusAmount="0.00" printTime="2015-02-03 19:46:21" ticketId="T201502030000498817">
+				<odds><![CDATA[SFC|150203301(0)=1(4.14),150203305(0)=1(8.68)|2*1]]></odds>
+				<bonusClass></bonusClass>
+			</ticket>
+			<ticket sysId="302031946230631NgnYJ" saleCode="test524557760654"
+				orderId="T201502030000498818" lotteryId="201" issue="20150203"
+				amount="2.00" status="2" msg="交易成功" bonusStatus="0" bonusAmount="0.00"
+				fixBonusAmount="0.00" printTime="2015-02-03 19:46:23" ticketId="T201502030000498818">
+				<odds><![CDATA[LHT|150203301:01(0)=1(6.45),150203305:03(0)=15(8.60)|2*1]]></odds>
+				<bonusClass></bonusClass>
+			</ticket>
+			<ticket sysId="302031946237598RNSkU" saleCode="test436002670728"
+				orderId="T201502030000498823" lotteryId="201" issue="20150203"
+				amount="2.00" status="2" msg="交易成功" bonusStatus="0" bonusAmount="0.00"
+				fixBonusAmount="0.00" printTime="2015-02-03 19:46:23" ticketId="T201502030000498823">
+				<odds><![CDATA[LHT|150203301:01(0)=1(5.32),150203303:04(+189.50)=2(2.27)|2*1]]></odds>
+				<bonusClass></bonusClass>
+			</ticket>
+			<ticket sysId="30203194623966auvqjB" saleCode="test040417508700"
+				orderId="T201502030000498824" lotteryId="201" issue="20150203"
+				amount="2.00" status="2" msg="交易成功" bonusStatus="0" bonusAmount="0.00"
+				fixBonusAmount="0.00" printTime="2015-02-03 19:46:24" ticketId="T201502030000498824">
+				<odds><![CDATA[LHT|150203301:01(0)=1(7.98),150203302:02(-4.50)=1(5.09)|2*1]]></odds>
+				<bonusClass></bonusClass>
+			</ticket>
+			<ticket sysId="30203194621097eYPtgo" saleCode="test122843671036"
+				orderId="T201502030000498826" lotteryId="201" issue="20150203"
+				amount="2.00" status="2" msg="交易成功" bonusStatus="0" bonusAmount="0.00"
+				fixBonusAmount="0.00" printTime="2015-02-03 19:46:21" ticketId="T201502030000498826">
+				<odds><![CDATA[SFC|150203301(0)=1(9.49),150203304(0)=1(2.78),150203305(0)=1(5.21)|3*1]]></odds>
+				<bonusClass></bonusClass>
+			</ticket>
+			<ticket sysId="30203194622770fndpDQ" saleCode="test165467644371"
+				orderId="T201502030000498815" lotteryId="201" issue="20150203"
+				amount="2.00" status="2" msg="交易成功" bonusStatus="0" bonusAmount="0.00"
+				fixBonusAmount="0.00" printTime="2015-02-03 19:46:22" ticketId="T201502030000498815">
+				<odds><![CDATA[LHT|150203303:04(+189.50)=2(4.52),150203304:01(0)=1(5.14)|2*1]]></odds>
+				<bonusClass></bonusClass>
+			</ticket>
+			<ticket sysId="30203194622902ayZM49" saleCode="test684366104804"
+				orderId="T201502030000498816" lotteryId="201" issue="20150203"
+				amount="2.00" status="2" msg="交易成功" bonusStatus="0" bonusAmount="0.00"
+				fixBonusAmount="0.00" printTime="2015-02-03 19:46:23" ticketId="T201502030000498816">
+				<odds><![CDATA[LHT|150203302:02(-4.50)=1(2.63),150203304:01(0)=1(8.56)|2*1]]></odds>
+				<bonusClass></bonusClass>
+			</ticket>
+			<ticket sysId="30203194623197UHU4gn" saleCode="test426588760666"
+				orderId="T201502030000498819" lotteryId="201" issue="20150203"
+				amount="2.00" status="2" msg="交易成功" bonusStatus="0" bonusAmount="0.00"
+				fixBonusAmount="0.00" printTime="2015-02-03 19:46:23" ticketId="T201502030000498819">
+				<odds><![CDATA[LHT|150203303:04(+189.50)=2(4.11),150203305:01(0)=1(9.07)|2*1]]></odds>
+				<bonusClass></bonusClass>
+			</ticket>
+			<ticket sysId="30203194623323kfch15" saleCode="test030512134662"
+				orderId="T201502030000498820" lotteryId="201" issue="20150203"
+				amount="2.00" status="2" msg="交易成功" bonusStatus="0" bonusAmount="0.00"
+				fixBonusAmount="0.00" printTime="2015-02-03 19:46:23" ticketId="T201502030000498820">
+				<odds><![CDATA[LHT|150203303:04(+189.50)=2(3.41),150203305:03(0)=15(7.65)|2*1]]></odds>
+				<bonusClass></bonusClass>
+			</ticket>
+			<ticket sysId="3020319462346413rQdL" saleCode="test031420736226"
+				orderId="T201502030000498821" lotteryId="201" issue="20150203"
+				amount="2.00" status="2" msg="交易成功" bonusStatus="0" bonusAmount="0.00"
+				fixBonusAmount="0.00" printTime="2015-02-03 19:46:23" ticketId="T201502030000498821">
+				<odds><![CDATA[LHT|150203302:02(-4.50)=1(6.63),150203305:01(0)=1(4.35)|2*1]]></odds>
+				<bonusClass></bonusClass>
+			</ticket>
+			<ticket sysId="30203194623611JYN01m" saleCode="test218465414774"
+				orderId="T201502030000498822" lotteryId="201" issue="20150203"
+				amount="2.00" status="2" msg="交易成功" bonusStatus="0" bonusAmount="0.00"
+				fixBonusAmount="0.00" printTime="2015-02-03 19:46:23" ticketId="T201502030000498822">
+				<odds><![CDATA[LHT|150203302:02(-4.50)=1(3.57),150203305:03(0)=15(1.12)|2*1]]></odds>
+				<bonusClass></bonusClass>
+			</ticket>
+			<ticket sysId="302031946243989m3tIq" saleCode="test643053372614"
+				orderId="T201502030000498825" lotteryId="201" issue="20150203"
+				amount="2.00" status="2" msg="交易成功" bonusStatus="0" bonusAmount="0.00"
+				fixBonusAmount="0.00" printTime="2015-02-03 19:46:24" ticketId="T201502030000498825">
+				<odds><![CDATA[LHT|150203302:02(-4.50)=1(2.70),150203303:04(+189.50)=2(4.62)|2*1]]></odds>
+				<bonusClass></bonusClass>
+			</ticket>
+			<ticket sysId="30203194620441CoqTS3" saleCode="test707447166072"
+				orderId="T201502030000498812" lotteryId="201" issue="20150203"
+				amount="2.00" status="2" msg="交易成功" bonusStatus="0" bonusAmount="0.00"
+				fixBonusAmount="0.00" printTime="2015-02-03 19:46:20" ticketId="T201502030000498812">
+				<odds><![CDATA[SFC|150203304(0)=1(4.97),150203305(0)=1(5.46)|2*1]]></odds>
+				<bonusClass></bonusClass>
+			</ticket>
+			<ticket sysId="30203194622633aIYbWZ" saleCode="test285278313086"
+				orderId="T201502030000498813" lotteryId="201" issue="20150203"
+				amount="2.00" status="2" msg="交易成功" bonusStatus="0" bonusAmount="0.00"
+				fixBonusAmount="0.00" printTime="2015-02-03 19:46:22" ticketId="T201502030000498813">
+				<odds><![CDATA[LHT|150203304:01(0)=1(7.01),150203305:03(0)=15(8.56)|2*1]]></odds>
+				<bonusClass></bonusClass>
+			</ticket>
 		</response>
 	</body>
 </message>
