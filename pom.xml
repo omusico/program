@@ -8,16 +8,10 @@
 	<properties>
 		<spring.version>3.2.4.RELEASE</spring.version>
 		<slf4j.version>1.7.7</slf4j.version>
-		<logback.version>1.1.2</logback.version>
-		<camel.version>2.12.3</camel.version>
-		<activemq.version>5.9.1</activemq.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<aspectj.version>1.8.0</aspectj.version>
-		<my.output.path>D:/zhongyue</my.output.path>
 		<maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
-		<hibernate.dialect>org.hibernate.dialect.OracleDialect</hibernate.dialect>
 		<nexus.url>172.16.20.239:8081</nexus.url>
-		<liquibase.file>src/main/db/mysql/changelog.xml</liquibase.file>
 	</properties>
 		<repositories>
 		<repository>
@@ -85,7 +79,7 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
 			<version>${logback.version}</version>
@@ -94,12 +88,12 @@
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-core</artifactId>
 			<version>${logback.version}</version>
-		</dependency>
-		<dependency>
+		</dependency> -->
+		<!-- <dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-access</artifactId>
 			<version>${logback.version}</version>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>commons-httpclient</groupId>
 			<artifactId>commons-httpclient</artifactId>
