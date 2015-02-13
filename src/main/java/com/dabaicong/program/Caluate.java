@@ -1,5 +1,8 @@
 package com.dabaicong.program;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -27,7 +30,20 @@ public class Caluate {
 	public static final String error = "LHT|150203302:02(-4.50)=1(2.63),150203304:01(0)=1(8.56)|2*1";
 	public static final String error1 = "LHT|150204301:02(-3.50)=2(6.66)/1(1.63),150204302:03(0)=02(6.23)/11(5.46)|2*1";
 	public static void main(String[] args) {
-		System.out.println(dealOdds(error1));
+//		System.out.println(dealOdds(error1));
+		
+		SimpleDateFormat sdf =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		try {
+			Date start = sdf.parse("2015-02-07 00:40:00");
+			Date end = sdf.parse("2015-02-06 23:50:00");
+			
+			System.out.println(returnLong(end, start));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		
 	}
 	
@@ -134,6 +150,13 @@ public class Caluate {
 		sb.deleteCharAt(sb.length()-1);
 		sb.append(")");
 		return  sb.toString();
+	}
+	
+	public static  boolean returnLong (Date start ,Date end ){
+		if((start.getTime()-(end.getTime()))>=0){
+			return true ;
+		}
+		return false ;
 	}
 	
 	
